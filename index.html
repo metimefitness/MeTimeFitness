@@ -278,6 +278,75 @@
             border-radius: 15px;
         }
         
+        .video-section {
+            margin: 5rem 0;
+            text-align: center;
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .video-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-item iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+        
+        .video-caption {
+            padding: 1.5rem;
+            background: #f8f9fa;
+        }
+        
+        .video-caption h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-section {
+            margin: 5rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
         .contact-section {
             text-align: center;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
@@ -354,8 +423,12 @@
                 align-items: center;
             }
             
-            .schedule-grid {
+            .schedule-grid, .video-container, .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .video-item iframe {
+                height: 200px;
             }
         }
     </style>
@@ -363,7 +436,6 @@
 <body>
     <!-- 顶部品牌Logo区域 -->
     <header class="brand-header" id="home">
-        <!-- Logo图片已恢复 -->
         
         <p class="brand-tagline">专业有氧健身操 • 健康生活新方式</p>
     </header>
@@ -375,6 +447,8 @@
                 <a href="#home">首页</a>
                 <a href="#coach">教练介绍</a>
                 <a href="#schedule">课程时间</a>
+                <a href="#video">教学视频</a>
+                <a href="#gallery">活动相册</a>
                 <a href="#location">上课地点</a>
                 <a href="#contact">联系我们</a>
             </div>
@@ -393,7 +467,6 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片已恢复 -->
                 
             </div>
             <div class="coach-info">
@@ -422,13 +495,75 @@
                     <p><strong>时间：</strong>每天早上 7:00 AM - 8:00 AM</p>
                     <p><strong>天数：</strong>星期一至星期日</p>
                     <p><strong>地点：</strong>Taman Sri Sinar (KFC对面)</p>
+                    <p><strong>费用：</strong>RM 80/月 (无限次数)</p>
                 </div>
                 <div class="schedule-item">
                     <h3>晚班课程</h3>
                     <p><strong>时间：</strong>晚上 7:00 PM - 8:00 PM</p>
                     <p><strong>天数：</strong>星期一至星期五</p>
                     <p><strong>地点：</strong>Taman Metropolitan Kepong 公园</p>
+                    <p><strong>费用：</strong>RM 100/月 (无限次数)</p>
                 </div>
+                <div class="schedule-item">
+                    <h3>私人定制课程</h3>
+                    <p><strong>时间：</strong>根据学员需求安排</p>
+                    <p><strong>内容：</strong>个性化健身计划</p>
+                    <p><strong>地点：</strong>上门教学或指定场地</p>
+                    <p><strong>费用：</strong>RM 150/小时 (需预约)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="video">
+        <h2 class="section-title">教学视频</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">观看我们的教学视频，了解课程内容</p>
+        
+        <div class="video-container">
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="有氧健身操基础教学" allowfullscreen></iframe>
+                <div class="video-caption">
+                    <h3>基础有氧健身操教学</h3>
+                    <p>适合初学者的基础动作教学</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="中级有氧健身操" allowfullscreen></iframe>
+                <div class="video-caption">
+                    <h3>中级有氧健身操</h3>
+                    <p>提升心肺功能的进阶训练</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="高强度间歇训练" allowfullscreen></iframe>
+                <div class="video-caption">
+                    <h3>高强度间歇训练</h3>
+                    <p>高效燃脂的HIIT训练</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://www.youtube.com/@zoeymetimefitness" class="cta-button" target="_blank">查看更多视频</a>
+        </div>
+    </section>
+
+    <section class="container" id="gallery">
+        <h2 class="section-title">活动相册</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">记录我们的精彩瞬间</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                
+            </div>
+            <div class="gallery-item">
+                
+            </div>
+            <div class="gallery-item">
+                
+            </div>
+            <div class="gallery-item">
+                
             </div>
         </div>
     </section>
@@ -439,15 +574,15 @@
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
-                <div class="map-link">
-                    <a href="https://maps.app.goo.gl/VfkiLxjYjQDAYU6i8" target="_blank">📱 点击在手机地图中打开</a>
+                <div class="map-link" style="margin-top: 1rem;">
+                    <a href="https://maps.app.goo.gl/VfkiLxjYjQDAYU6i8" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">📱 点击在手机地图中打开</a>
                 </div>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
-                <div class="map-link">
-                    <a href="https://maps.app.goo.gl/uuDBrA8CZxMAFk7Q7" target="_blank">📱 点击在手机地图中打开</a>
+                <div class="map-link" style="margin-top: 1rem;">
+                    <a href="https://maps.app.goo.gl/uuDBrA8CZxMAFk7Q7" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">📱 点击在手机地图中打开</a>
                 </div>
             </div>
         </div>
@@ -467,6 +602,12 @@
             
             <p>电话：+60 13-443 9133</p>
             <p>邮箱：zoeymetimefitness2.0@gmail.com</p>
+            
+            <div style="margin-top: 2rem; background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 15px;">
+                <h3>免费体验课程</h3>
+                <p>新学员可预约一次免费体验课程，感受我们的教学氛围！</p>
+                <a href="https://wa.me/60134439133" class="cta-button" style="margin-top: 1rem;">立即预约体验</a>
+            </div>
         </div>
     </section>
 
@@ -476,23 +617,4 @@
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%)';
-            }
-        });
-    </script>
-</body>
-</html>
+        document.querySelector
