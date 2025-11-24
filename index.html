@@ -37,9 +37,22 @@
             padding: 0 2rem;
         }
         
+        /* Logo样式修复 */
         .logo {
-            height: 50px;
-            border-radius: 5px;
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+            border: 2px solid white;
+            padding: 5px;
+            background: white;
+        }
+        
+        /* Logo备用方案（如果图片不显示） */
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
         }
         
         .nav-links a {
@@ -121,13 +134,17 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
+        /* 教练照片样式修复 - 确保完整显示 */
         .coach-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+            max-width: 100%;
+            height: auto;
             display: block;
+            border-radius: 15px;
         }
         
         .coach-info {
@@ -217,6 +234,14 @@
             margin-top: 4rem;
         }
         
+        /* Logo不显示时的备用样式 */
+        .logo-fallback {
+            display: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             .coach-section {
                 flex-direction: column;
@@ -240,8 +265,12 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <!-- 修正：使用 .jpg 格式 -->
-            <img src="logo.jpg" alt="Me Time Fitness" class="logo">
+            <!-- Logo图片（如果图片加载失败会显示备用文字） -->
+            <img src="logo.jpg" alt="Me Time Fitness" class="logo" 
+                 onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+            <!-- Logo备用方案 -->
+            <a href="#home" class="logo-text" id="logoFallback" style="display: none;">ME TIME FITNESS</a>
+            
             <div class="nav-links">
                 <a href="#home">首页</a>
                 <a href="#coach">教练介绍</a>
@@ -264,8 +293,8 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 修正：使用 .jpg 格式 -->
-                <img src="coach-zoey.jpg" alt="Zoey老师">
+                <!-- 教练照片 - 已修复显示问题 -->
+                <img src="coach-zoey.jpg" alt="Zoey老师 - 专业有氧健身操教练">
             </div>
             <div class="coach-info">
                 <h3>Zoey老师</h3>
@@ -341,6 +370,7 @@
     </footer>
 
     <script>
+        // 平滑滚动效果
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -350,12 +380,23 @@
             });
         });
 
+        // 导航栏滚动效果
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
                 navbar.style.background = 'rgba(102, 126, 234, 0.95)';
             } else {
                 navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+
+        // 图片加载失败处理
+        window.addEventListener('load', function() {
+            const logoImg = document.querySelector('.logo');
+            if (logoImg.naturalWidth === 0) {
+                // Logo图片加载失败
+                logoImg.style.display = 'none';
+                document.getElementById('logoFallback').style.display = 'block';
             }
         });
     </script>
