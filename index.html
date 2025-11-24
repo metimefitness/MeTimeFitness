@@ -18,7 +18,6 @@
             line-height: 1.6;
         }
         
-        /* 顶部品牌区域 */
         .brand-header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
             padding: 3rem 0;
@@ -97,11 +96,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85)), 
-                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
             height: 80vh;
             display: flex;
             align-items: center;
@@ -178,7 +173,6 @@
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
         
         .coach-image {
@@ -186,9 +180,6 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
         .coach-image img {
@@ -196,11 +187,6 @@
             height: auto;
             display: block;
             border-radius: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .coach-image img:hover {
-            transform: scale(1.05);
         }
         
         .coach-info {
@@ -220,7 +206,6 @@
             border-radius: 25px;
             margin-bottom: 4rem;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
         
         .schedule-grid {
@@ -248,7 +233,6 @@
             font-size: 1.8rem;
         }
         
-        /* 视频区样式 */
         .video-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -266,7 +250,6 @@
         
         .video-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
         
         .video-item iframe {
@@ -298,7 +281,6 @@
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
         
         .map-item iframe {
@@ -308,7 +290,6 @@
             border-radius: 15px;
         }
         
-        /* 地图链接样式 */
         .map-link {
             text-align: center;
             margin-top: 1rem;
@@ -355,14 +336,12 @@
             border-radius: 50px;
             transition: all 0.3s ease;
             font-weight: 600;
-            backdrop-filter: blur(10px);
         }
         
         .social-link:hover {
             background: white;
             color: #667eea;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
         
         footer {
@@ -385,12 +364,6 @@
             
             .brand-logo {
                 max-width: 200px;
-            }
-            
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
             }
             
             .nav-links a {
@@ -416,14 +389,11 @@
     </style>
 </head>
 <body>
-    <!-- 顶部品牌Logo区域 -->
     <header class="brand-header" id="home">
-        <!-- Logo图片 -->
         
         <p class="brand-tagline">专业有氧健身操 • 健康生活新方式</p>
     </header>
 
-    <!-- 导航栏 - 修正顺序 -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-links">
@@ -449,7 +419,6 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片 -->
                 
             </div>
             <div class="coach-info">
@@ -489,59 +458,46 @@
         </div>
     </section>
 
-    <!-- 教学视频放在课程时间表后面 -->
     <section class="container" id="video">
-        <h2 class="section-title">专业教学视频</h2>
-        
+        <h2 class="section-title">教学视频</h2>
         <div class="video-container">
-            <!-- 视频1 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/l1hNFrpUhKg" title="提臀锻炼示范" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/l1hNFrpUhKg" allowfullscreen></iframe>
                 <div class="video-caption">
                     <h3>提臀锻炼示范</h3>
                     <p>塑造完美臀部曲线</p>
                 </div>
             </div>
-            
-            <!-- 视频2 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/cWDc24h_5mA" title="卷腹动作示范" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/cWDc24h_5mA" allowfullscreen></iframe>
                 <div class="video-caption">
                     <h3>卷腹动作示范</h3>
                     <p>强化核心肌群</p>
                 </div>
             </div>
-            
-            <!-- 视频3 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" title="团队上课气氛" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" allowfullscreen></iframe>
                 <div class="video-caption">
                     <h3>团队上课气氛</h3>
                     <p>欢乐的运动氛围</p>
                 </div>
             </div>
-            
-            <!-- 视频4 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" title="团队上课气氛" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" allowfullscreen></iframe>
                 <div class="video-caption">
                     <h3>团队上课实况</h3>
                     <p>集体训练效果更佳</p>
                 </div>
             </div>
-            
-            <!-- 视频5 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" title="锻炼马甲线示范" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" allowfullscreen></iframe>
                 <div class="video-caption">
-                    <h3>马甲线锻炼示范</h3>
+                    <h3>锻炼马甲线示范</h3>
                     <p>塑造迷人腹部线条</p>
                 </div>
             </div>
-            
-            <!-- 视频6 -->
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="腰部和手臂与背部锻炼" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" allowfullscreen></iframe>
                 <div class="video-caption">
                     <h3>腰背手臂综合训练</h3>
                     <p>全方位塑形</p>
@@ -551,18 +507,18 @@
     </section>
 
     <section class="container" id="location">
-        <h2 class="section-title">上课地点导航</h2>
+        <h2 class="section-title">上课地点</h2>
         <div class="map-container">
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
                 <div class="map-link">
                     <a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">📱 点击导航到早班地点</a>
                 </div>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
                 <div class="map-link">
                     <a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">📱 点击导航到晚班地点</a>
                 </div>
@@ -574,14 +530,12 @@
         <div class="contact-section">
             <h2 class="section-title">立即加入我们</h2>
             <p>有任何疑问或想预约体验课程？欢迎联系我们！</p>
-            
             <div class="social-links">
                 <a href="https://www.facebook.com/zoeymetimefitness/" class="social-link" target="_blank">Facebook</a>
                 <a href="https://www.youtube.com/@zoeymetimefitness" class="social-link" target="_blank">YouTube</a>
                 <a href="mailto:zoeymetimefitness2.0@gmail.com" class="social-link">Email</a>
                 <a href="https://wa.me/60134439133" class="social-link">WhatsApp</a>
             </div>
-            
             <p>电话：+60 13-443 9133</p>
             <p>邮箱：zoeymetimefitness2.0@gmail.com</p>
         </div>
@@ -600,15 +554,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%)';
-            }
         });
     </script>
 </body>
