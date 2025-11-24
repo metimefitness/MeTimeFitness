@@ -37,12 +37,30 @@
             padding: 0 2rem;
         }
         
-        /* 文字Logo样式 */
+        /* Logo容器 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+        
+        /* 图片Logo */
+        .logo-img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+            border: 2px solid white;
+            padding: 5px;
+            background: white;
+        }
+        
+        /* 文字Logo */
         .text-logo {
             color: white;
             text-align: center;
             font-weight: bold;
             line-height: 1.2;
+            display: none;
         }
         
         .logo-main {
@@ -58,6 +76,14 @@
             letter-spacing: 3px;
             opacity: 0.9;
             text-transform: uppercase;
+        }
+        
+        /* 图标Logo */
+        .icon-logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: none;
         }
         
         .nav-links a {
@@ -200,6 +226,17 @@
             border-radius: 10px;
         }
         
+        .map-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .map-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
         .contact-section {
             text-align: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -269,10 +306,22 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <!-- 文字Logo -->
-            <div class="text-logo">
-                <span class="logo-main">ME TIME</span>
-                <span class="logo-sub">FITNESS</span>
+            <!-- Logo三重保障方案 -->
+            <div class="logo-container">
+                <!-- 方案1：图片Logo -->
+                <img src="logo.jpg" alt="Me Time Fitness" class="logo-img" 
+                     onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'; document.getElementById('icon-logo').style.display='block'">
+                
+                <!-- 方案2：文字Logo -->
+                <div id="text-logo" class="text-logo" style="display: none;">
+                    <span class="logo-main">ME TIME</span>
+                    <span class="logo-sub">FITNESS</span>
+                </div>
+                
+                <!-- 方案3：图标Logo -->
+                <div id="icon-logo" class="icon-logo" style="display: none;">
+                    💪 FITNESS
+                </div>
             </div>
             
             <div class="nav-links">
@@ -297,7 +346,6 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 修复：添加教练照片 -->
                 <img src="coach-zoey.jpg" alt="Zoey老师 - 专业有氧健身操教练">
             </div>
             <div class="coach-info">
@@ -342,19 +390,17 @@
         <div class="map-container">
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
-                <!-- 修复：正确的早班地点地图 -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
-                <p style="text-align: center; margin-top: 10px; color: #666;">
-                    <a href="https://maps.app.goo.gl/uuDBrA8CZxMAFk7Q7" target="_blank">📱 点击在手机地图中打开</a>
-                </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/1bYeJ7OudBie7NUOp" target="_blank">📱 点击在手机地图中打开</a>
+                </div>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <!-- 修复：正确的晚班地点地图 -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
-                <p style="text-align: center; margin-top: 10px; color: #666;">
+                <div class="map-link">
                     <a href="https://maps.app.goo.gl/uuDBrA8CZxMAFk7Q7" target="_blank">📱 点击在手机地图中打开</a>
-                </p>
+                </div>
             </div>
         </div>
     </section>
@@ -397,6 +443,17 @@
                 navbar.style.background = 'rgba(102, 126, 234, 0.95)';
             } else {
                 navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+
+        // 检测Logo图片是否加载失败
+        window.addEventListener('load', function() {
+            const logoImg = document.querySelector('.logo-img');
+            if (logoImg.naturalWidth === 0) {
+                // 图片加载失败，显示备用Logo
+                logoImg.style.display = 'none';
+                document.getElementById('text-logo').style.display = 'block';
+                document.getElementById('icon-logo').style.display = 'block';
             }
         });
     </script>
