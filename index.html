@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Time Fitness - 专业有氧健身操</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* 首页横幅 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #ff5252;
+        }
+        
+        /* 主要内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        /* 教练介绍 */
+        .coach-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .coach-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .coach-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .coach-info {
+            flex: 1;
+        }
+        
+        .coach-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        /* 课程时间表 */
+        .schedule {
+            background: #f1f3f4;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .schedule-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* 地图部分 */
+        .map-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .map-item iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        /* 联系板块 */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .coach-section {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="logo.png" alt="Me Time Fitness" class="logo">
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#coach">教练介绍</a>
+                <a href="#schedule">课程时间</a>
+                <a href="#location">上课地点</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页横幅 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>拥有健康健美身材不是梦</h1>
+            <p>专业有氧健身操 - Zoey老师亲自指导</p>
+            <a href="#schedule" class="cta-button">查看课程时间</a>
+        </div>
+    </section>
+
+    <!-- 教练介绍 -->
+    <section class="container" id="coach">
+        <h2 class="section-title">专业教练介绍</h2>
+        <div class="coach-section">
+            <div class="coach-image">
+                <img src="coach-zoey.jpg" alt="Zoey老师">
+            </div>
+            <div class="coach-info">
+                <h3>Zoey老师</h3>
+                <p><strong>年龄：</strong>41岁</p>
+                <p><strong>教学经验：</strong>3年6个月</p>
+                <p><strong>专业资质：</strong>有氧健身操认证教练</p>
+                <p><strong>商业演出经历：</strong></p>
+                <ul>
+                    <li>Wellous Immority products 广告演出</li>
+                    <li>Desa Jaya 华小慈善演出</li>
+                    <li>KRT Dance Events</li>
+                    <li>神庙神诞演出等</li>
+                </ul>
+                <p>拥有丰富的教学经验和舞台表演经历，擅长将有氧运动与音乐完美结合，让健身变得有趣而高效。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程时间表 -->
+    <section class="container" id="schedule">
+        <h2 class="section-title">课程时间表</h2>
+        <div class="schedule">
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <h3>早班课程</h3>
+                    <p><strong>时间：</strong>每天早上 7:00 AM - 8:00 AM</p>
+                    <p><strong>天数：</strong>星期一至星期日</p>
+                    <p><strong>地点：</strong>Taman Sri Sinar (KFC对面)</p>
+                </div>
+                <div class="schedule-item">
+                    <h3>晚班课程</h3>
+                    <p><strong>时间：</strong>晚上 7:00 PM - 8:00 PM</p>
+                    <p><strong>天数：</strong>星期一至星期五</p>
+                    <p><strong>地点：</strong>Taman Metropolitan Kepong 公园</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 上课地点 -->
+    <section class="container" id="location">
+        <h2 class="section-title">上课地点</h2>
+        <div class="map-container">
+            <div class="map-item">
+                <h3>早班地点：Taman Sri Sinar</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiJOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="map-item">
+                <h3>晚班地点：Taman Metropolitan Kepong</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCJOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="container" id="contact">
+        <div class="contact-section">
+            <h2 class="section-title">立即加入我们</h2>
+            <p>有任何疑问或想预约体验课程？欢迎联系我们！</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/zoeymetimefitness/" class="social-link" target="_blank">Facebook</a>
+                <a href="https://www.youtube.com/@zoeymetimefitness" class="social-link" target="_blank">YouTube</a>
+                <a href="mailto:zoeymetimefitness2.0@gmail.com" class="social-link">Email</a>
+                <a href="https://wa.me/60134439133" class="social-link">WhatsApp</a>
+            </div>
+            
+            <p>电话：+60 13-443 9133</p>
+            <p>邮箱：zoeymetimefitness2.0@gmail.com</p>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 Me Time Fitness. 所有权利保留。</p>
+        <p>专业有氧健身操教学 - 让健康成为生活方式</p>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
