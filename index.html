@@ -37,6 +37,12 @@
             padding: 0 2rem;
         }
         
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
         .logo {
             height: 60px;
             width: auto;
@@ -44,6 +50,12 @@
             border: 2px solid white;
             padding: 5px;
             background: white;
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
         }
         
         .nav-links a {
@@ -74,7 +86,6 @@
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero-content p {
@@ -259,8 +270,11 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo图片 - 现在会显示 -->
-            
+            <div class="brand-container">
+                <!-- Logo图片 -->
+                
+                <span class="brand-name">ME TIME FITNESS</span>
+            </div>
             <div class="nav-links">
                 <a href="#home">首页</a>
                 <a href="#coach">教练介绍</a>
@@ -284,7 +298,7 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片 - 现在会显示 -->
+                <!-- 教练照片 -->
                 
             </div>
             <div class="coach-info">
@@ -357,14 +371,14 @@
     <section class="container" id="location">
         <h2 class="section-title">上课地点</h2>
         <div class="map-container">
-            <div class="video-item">
+            <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
                 <p><a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">📱 点击导航到早班地点</a></p>
             </div>
-            <div class="video-item">
+            <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
                 <p><a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">📱 点击导航到晚班地点</a></p>
             </div>
         </div>
