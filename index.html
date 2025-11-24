@@ -248,28 +248,6 @@
             font-size: 1.8rem;
         }
         
-        .map-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-        
-        .map-item {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .map-item iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 15px;
-        }
-        
         /* 视频区样式 */
         .video-container {
             display: grid;
@@ -306,6 +284,28 @@
         .video-caption h3 {
             color: #667eea;
             margin-bottom: 0.5rem;
+        }
+        
+        .map-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .map-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .map-item iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 15px;
         }
         
         /* 地图链接样式 */
@@ -418,11 +418,12 @@
 <body>
     <!-- 顶部品牌Logo区域 -->
     <header class="brand-header" id="home">
+        <!-- Logo图片 -->
         
         <p class="brand-tagline">专业有氧健身操 • 健康生活新方式</p>
     </header>
 
-    <!-- 导航栏 -->
+    <!-- 导航栏 - 修正顺序 -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-links">
@@ -448,6 +449,7 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
+                <!-- 教练照片 -->
                 
             </div>
             <div class="coach-info">
@@ -487,6 +489,7 @@
         </div>
     </section>
 
+    <!-- 教学视频放在课程时间表后面 -->
     <section class="container" id="video">
         <h2 class="section-title">专业教学视频</h2>
         
@@ -552,7 +555,7 @@
         <div class="map-container">
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNO IDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
                 <div class="map-link">
                     <a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">📱 点击导航到早班地点</a>
                 </div>
