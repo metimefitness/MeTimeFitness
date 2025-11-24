@@ -63,17 +63,10 @@
             text-decoration: none;
             margin-left: 2rem;
             font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ffd700;
         }
         
         .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
             height: 100vh;
             display: flex;
             align-items: center;
@@ -100,15 +93,7 @@
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
             text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            background: #ff5252;
         }
         
         .container {
@@ -135,7 +120,6 @@
             flex: 1;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .coach-image img {
@@ -171,7 +155,6 @@
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .schedule-item h3 {
@@ -190,14 +173,12 @@
             background: white;
             padding: 1rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .video-item iframe {
             width: 100%;
             height: 560px;
             border: none;
-            border-radius: 10px;
         }
         
         .map-container {
@@ -211,7 +192,6 @@
             width: 100%;
             height: 300px;
             border: none;
-            border-radius: 10px;
         }
         
         .contact-section {
@@ -227,7 +207,6 @@
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
-            flex-wrap: wrap;
         }
         
         .social-link {
@@ -236,12 +215,6 @@
             padding: 10px 20px;
             border: 2px solid white;
             border-radius: 25px;
-            transition: all 0.3s;
-        }
-        
-        .social-link:hover {
-            background: white;
-            color: #667eea;
         }
         
         footer {
@@ -251,27 +224,13 @@
             padding: 2rem;
             margin-top: 4rem;
         }
-        
-        @media (max-width: 768px) {
-            .coach-section {
-                flex-direction: column;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="brand-container">
-                <!-- Logo图片 - 现在会显示 -->
+                <!-- 这里添加Logo图片 -->
                 
                 <span class="brand-name">ME TIME FITNESS</span>
             </div>
@@ -298,7 +257,7 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片 - 现在会显示 -->
+                <!-- 这里添加教练照片 -->
                 
             </div>
             <div class="coach-info">
@@ -343,27 +302,21 @@
         <div class="video-container">
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/l1hNFrpUhKg" title="提臀锻炼示范" allowfullscreen></iframe>
-                <p><strong>提臀锻炼示范</strong></p>
             </div>
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/cWDc24h_5mA" title="卷腹动作示范" allowfullscreen></iframe>
-                <p><strong>卷腹动作示范</strong></p>
             </div>
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" title="团队上课气氛" allowfullscreen></iframe>
-                <p><strong>团队上课气氛</strong></p>
             </div>
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" title="团队上课气氛" allowfullscreen></iframe>
-                <p><strong>团队上课气氛</strong></p>
             </div>
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" title="锻炼马甲线示范" allowfullscreen></iframe>
-                <p><strong>锻炼马甲线示范</strong></p>
             </div>
             <div class="video-item">
                 <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="锻炼腰部和手臂与背部" allowfullscreen></iframe>
-                <p><strong>腰部和手臂与背部锻炼</strong></p>
             </div>
         </div>
     </section>
@@ -374,12 +327,12 @@
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
-                <p><a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">📱 点击导航到早班地点</a></p>
+                <p><a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">点击导航到早班地点</a></p>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
-                <p><a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">📱 点击导航到晚班地点</a></p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
+                <p><a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">点击导航到晚班地点</a></p>
             </div>
         </div>
     </section>
@@ -405,25 +358,5 @@
         <p>&copy; 2024 Me Time Fitness. 所有权利保留。</p>
         <p>专业有氧健身操教学 - 让健康成为生活方式</p>
     </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            }
-        });
-    </script>
 </body>
 </html>
