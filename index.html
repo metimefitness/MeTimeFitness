@@ -252,20 +252,6 @@
             padding: 2rem;
             margin-top: 4rem;
         }
-        
-        @media (max-width: 768px) {
-            .coach-section {
-                flex-direction: column;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -299,7 +285,7 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片 - 现在会显示 -->
+                <!-- 教练照片 -->
                 
             </div>
             <div class="coach-info">
@@ -406,25 +392,5 @@
         <p>&copy; 2024 Me Time Fitness. 所有权利保留。</p>
         <p>专业有氧健身操教学 - 让健康成为生活方式</p>
     </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            }
-        });
-    </script>
 </body>
 </html>
