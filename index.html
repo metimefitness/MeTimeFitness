@@ -71,7 +71,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), url('https://source.unsplash.com/random/1950x1300/?fitness,aerobic');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -136,6 +136,11 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #f0f0f0;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .coach-image img {
@@ -195,7 +200,7 @@
         
         .video-item iframe {
             width: 100%;
-            height: 560px;
+            height: 200px;
             border: none;
         }
         
@@ -248,13 +253,26 @@
             padding: 2rem;
             margin-top: 4rem;
         }
+
+        /* 临时占位符样式 */
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 15px;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo.jpg-container">
-                <!-- Logo图片 -->
+            <div class="brand-container">
+                <!-- Logo图片 - 修正路径 -->
                 
                 <span class="brand-name">ME TIME FITNESS</span>
             </div>
@@ -280,9 +298,9 @@
     <section class="container" id="coach">
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
-            <div class="coach-zoey.jpg-image">
-                <!-- 教练照片 -->
-                
+            <div class="coach-image">
+                <!-- 教练照片 - 修正路径 -->
+                教练照片加载失败<br>请检查coach-zoey.jpg文件路径</div>'">
             </div>
             <div class="coach-info">
                 <h3>Zoey老师</h3>
@@ -301,6 +319,7 @@
         </div>
     </section>
 
+    <!-- 其余部分保持不变 -->
     <section class="container" id="schedule">
         <h2 class="section-title">课程时间表</h2>
         <div class="schedule">
@@ -336,18 +355,6 @@
                 <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" title="团队上课气氛" allowfullscreen></iframe>
                 <p><strong>团队上课气氛</strong></p>
             </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" title="团队上课气氛" allowfullscreen></iframe>
-                <p><strong>团队上课气氛</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" title="锻炼马甲线示范" allowfullscreen></iframe>
-                <p><strong>锻炼马甲线示范</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="锻炼腰部和手臂与背部" allowfullscreen></iframe>
-                <p><strong>腰部和手臂与背部锻炼</strong></p>
-            </div>
         </div>
     </section>
 
@@ -357,12 +364,10 @@
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNOIDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
-                <p><a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">点击导航到早班地点</a></p>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
-                <p><a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">点击导航到晚班地点</a></p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNOIDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -390,4 +395,3 @@
     </footer>
 </body>
 </html>
-
