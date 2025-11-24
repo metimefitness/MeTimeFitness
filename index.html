@@ -37,22 +37,27 @@
             padding: 0 2rem;
         }
         
-        /* Logo样式修复 */
-        .logo {
-            height: 60px;
-            width: auto;
-            border-radius: 8px;
-            border: 2px solid white;
-            padding: 5px;
-            background: white;
+        /* 文字Logo样式 */
+        .text-logo {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.2;
         }
         
-        /* Logo备用方案（如果图片不显示） */
-        .logo-text {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
+        .logo-main {
+            font-size: 1.8rem;
+            display: block;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        
+        .logo-sub {
+            font-size: 0.9rem;
+            display: block;
+            letter-spacing: 3px;
+            opacity: 0.9;
+            text-transform: uppercase;
         }
         
         .nav-links a {
@@ -139,7 +144,6 @@
             align-items: center;
         }
         
-        /* 教练照片样式修复 - 确保完整显示 */
         .coach-image img {
             max-width: 100%;
             height: auto;
@@ -234,14 +238,6 @@
             margin-top: 4rem;
         }
         
-        /* Logo不显示时的备用样式 */
-        .logo-fallback {
-            display: none;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        
         @media (max-width: 768px) {
             .coach-section {
                 flex-direction: column;
@@ -259,17 +255,25 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .logo-main {
+                font-size: 1.5rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo图片（如果图片加载失败会显示备用文字） -->
-            <img src="logo.jpg" alt="Me Time Fitness" class="logo" 
-                 onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
-            <!-- Logo备用方案 -->
-            <a href="#home" class="logo-text" id="logoFallback" style="display: none;">ME TIME FITNESS</a>
+            <!-- 文字Logo -->
+            <div class="text-logo">
+                <span class="logo-main">ME TIME</span>
+                <span class="logo-sub">FITNESS</span>
+            </div>
             
             <div class="nav-links">
                 <a href="#home">首页</a>
@@ -281,6 +285,7 @@
         </div>
     </nav>
 
+    <!-- 其余代码保持不变 -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>拥有健康健美身材不是梦</h1>
@@ -293,8 +298,7 @@
         <h2 class="section-title">专业教练介绍</h2>
         <div class="coach-section">
             <div class="coach-image">
-                <!-- 教练照片 - 已修复显示问题 -->
-                <img src="coach-zoey.jpg" alt="Zoey老师 - 专业有氧健身操教练">
+                
             </div>
             <div class="coach-info">
                 <h3>Zoey老师</h3>
@@ -370,7 +374,6 @@
     </footer>
 
     <script>
-        // 平滑滚动效果
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -380,23 +383,12 @@
             });
         });
 
-        // 导航栏滚动效果
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
                 navbar.style.background = 'rgba(102, 126, 234, 0.95)';
             } else {
                 navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            }
-        });
-
-        // 图片加载失败处理
-        window.addEventListener('load', function() {
-            const logoImg = document.querySelector('.logo');
-            if (logoImg.naturalWidth === 0) {
-                // Logo图片加载失败
-                logoImg.style.display = 'none';
-                document.getElementById('logoFallback').style.display = 'block';
             }
         });
     </script>
