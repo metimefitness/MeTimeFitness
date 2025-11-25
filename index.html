@@ -124,24 +124,67 @@
             color: #333;
         }
         
+        /* 新增：教练介绍部分背景样式 */
+        .coach-background {
+            background: linear-gradient(135deg, rgba(134, 151, 102, 0.9) 0%, rgba(107, 142, 35, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 0;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coach-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
         .coach-section {
             display: flex;
             align-items: center;
             gap: 3rem;
-            margin-bottom: 4rem;
+            margin-bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 2;
         }
         
         .coach-image {
             flex: 1;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .coach-image:hover {
+            transform: translateY(-10px);
         }
         
         .coach-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .coach-image:hover img {
+            transform: scale(1.05);
         }
         
         .coach-info {
@@ -149,9 +192,37 @@
         }
         
         .coach-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #6b8e23;
+            background: linear-gradient(135deg, #6b8e23, #9acd32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .coach-info p, .coach-info li {
+            color: #555;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .coach-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .coach-info li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .coach-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6b8e23;
+            font-weight: bold;
         }
         
         .schedule {
@@ -248,13 +319,27 @@
             padding: 2rem;
             margin-top: 4rem;
         }
+        
+        @media (max-width: 768px) {
+            .coach-section {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            
+            .coach-background {
+                padding: 3rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="brand-container">
-                <!-- Logo图片 -->
                 <img src="logo.jpeg" alt="Me Time Fitness Logo" class="logo">
                 <span class="brand-name">ME TIME FITNESS</span>
             </div>
@@ -277,26 +362,28 @@
         </div>
     </section>
 
-    <section class="container" id="coach">
-        <h2 class="section-title">专业教练介绍</h2>
-        <div class="coach-section">
-            <div class="coach-image">
-                <!-- 教练照片 -->
-                <img src="coach-zoey.JPEG" alt="Zoey老师" class="coach-photo">
-            </div>
-            <div class="coach-info">
-                <h3>Zoey老师</h3>
-                <p><strong>年龄：</strong>41岁</p>
-                <p><strong>教学经验：</strong>3年6个月</p>
-                <p><strong>专业资质：</strong>有氧健身操认证教练</p>
-                <p><strong>商业演出经历：</strong></p>
-                <ul>
-                    <li>Wellous Immority products 广告演出</li>
-                    <li>Desa Jaya 华小慈善演出</li>
-                    <li>KRT Dance Events</li>
-                    <li>神庙神诞演出等</li>
-                </ul>
-                <p>拥有丰富的教学经验和舞台表演经历，擅长将有氧运动与音乐完美结合，让健身变得有趣而高效。</p>
+    <!-- 新增：教练介绍背景区域 -->
+    <section class="coach-background" id="coach">
+        <div class="container">
+            <h2 class="section-title" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">专业教练介绍</h2>
+            <div class="coach-section">
+                <div class="coach-image">
+                    <img src="coach-zoey.JPEG" alt="Zoey老师" class="coach-photo">
+                </div>
+                <div class="coach-info">
+                    <h3>Zoey老师</h3>
+                    <p><strong>年龄：</strong>41岁</p>
+                    <p><strong>教学经验：</strong>3年6个月</p>
+                    <p><strong>专业资质：</strong>有氧健身操认证教练</p>
+                    <p><strong>商业演出经历：</strong></p>
+                    <ul>
+                        <li>Wellous Immority products 广告演出</li>
+                        <li>Desa Jaya 华小慈善演出</li>
+                        <li>KRT Dance Events</li>
+                        <li>神庙神诞演出等</li>
+                    </ul>
+                    <p>拥有丰富的教学经验和舞台表演经历，擅长将有氧运动与音乐完美结合，让健身变得有趣而高效。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -356,12 +443,12 @@
         <div class="map-container">
             <div class="map-item">
                 <h3>早班地点：Taman Sri Sinar (KFC对面)</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNO IDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.941724246238!2d101.6152774!3d3.1931038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTEnMzUuMiNO IDEwMcKwMzYnNTUuMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy'></iframe>
                 <p><a href="https://maps.app.goo.gl/b34qiXg6qmPSAu378" target="_blank">点击导航到早班地点</a></p>
             </div>
             <div class="map-item">
                 <h3>晚班地点：Taman Metropolitan Kepong 公园</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789012!2d101.6300000!3d3.2100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMzYuMCNO IDEwMcKwMzcnNDguMCJF!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy" allowfullscreen loading='lazy'></iframe>
                 <p><a href="https://maps.app.goo.gl/wVZgcyhbvk99Ao6S6" target="_blank">点击导航到晚班地点</a></p>
             </div>
         </div>
@@ -390,5 +477,3 @@
     </footer>
 </body>
 </html>
-
-
