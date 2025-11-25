@@ -496,13 +496,41 @@
         @media (max-width: 480px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             }
             
-            .nav-container::after {
-                content: "☰";
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                margin: 0.5rem 0;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+            
+            .nav-links a:hover {
+                background: rgba(255,255,255,0.1);
+            }
+            
+            .menu-toggle {
+                display: block;
                 color: white;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 cursor: pointer;
+                padding: 0.5rem;
+            }
+            
+            .nav-container {
+                position: relative;
             }
             
             .brand-name {
@@ -511,6 +539,12 @@
             
             .logo {
                 height: 25px;
+            }
+        }
+        
+        @media (min-width: 481px) {
+            .menu-toggle {
+                display: none;
             }
         }
     </style>
@@ -522,13 +556,14 @@
                 <img src="logo.jpeg" alt="Me Time Fitness Logo" class="logo">
                 <span class="brand-name">ME TIME FITNESS</span>
             </div>
-            <div class="nav-links">
-                <a href="#home">首页</a>
-                <a href="#coach">教练介绍</a>
-                <a href="#schedule">课程时间</a>
-                <a href="#video">教学视频</a>
-                <a href="#location">上课地点</a>
-                <a href="#contact">联系我们</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" onclick="closeMenu()">首页</a>
+                <a href="#coach" onclick="closeMenu()">教练介绍</a>
+                <a href="#schedule" onclick="closeMenu()">课程时间</a>
+                <a href="#video" onclick="closeMenu()">教学视频</a>
+                <a href="#location" onclick="closeMenu()">上课地点</a>
+                <a href="#contact" onclick="closeMenu()">联系我们</a>
             </div>
         </div>
     </nav>
@@ -645,7 +680,7 @@
         <h2 class="section-title" style="color: white;">联系我们</h2>
         <p>欢迎随时联系我们，了解更多课程信息</p>
         <div class="social-links">
-            <a href="https://wa.me/601344439133" target="_blank" class="social-link">WhatsApp</a>
+            <a href="https://wa.me/60134439133" target="_blank" class="social-link">WhatsApp</a>
             <a href="mailto:metimefitness2.0@gmail.com" class="social-link">Email</a>
         </div>
     </section>
@@ -653,5 +688,50 @@
     <footer>
         <p>&copy; 2024 Me Time Fitness. All rights reserved.</p>
     </footer>
+
+    <script>
+        // 手机菜单切换功能
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        // 关闭菜单
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+        
+        // 平滑滚动功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // 滚动时自动关闭菜单
+        window.addEventListener('scroll', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
