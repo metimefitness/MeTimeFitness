@@ -86,7 +86,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 70px;
+            margin-top: 50px;
         }
         
         .hero-content {
@@ -126,6 +126,53 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
+        }
+        
+        /* 新增：视频和地图区域的渐变背景 */
+        .video-section-bg {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 50%, rgba(134, 151, 102, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(107, 142, 35, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .video-section-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .location-section-bg {
+            background: linear-gradient(135deg, rgba(107, 142, 35, 0.08) 0%, rgba(134, 151, 102, 0.08) 50%, rgba(118, 75, 162, 0.08) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .location-section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 60%),
+                        radial-gradient(circle at 30% 70%, rgba(255, 107, 107, 0.05) 0%, transparent 60%);
+            z-index: 1;
+        }
+        
+        .location-section-content {
+            position: relative;
+            z-index: 2;
         }
         
         .section-title {
@@ -381,6 +428,40 @@
         }
         
         @media (max-width: 768px) {
+            .navbar {
+                padding: 0.3rem 0;
+            }
+            
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+            
+            .brand-container {
+                gap: 0.3rem;
+            }
+            
+            .logo {
+                height: 30px;
+                padding: 2px;
+            }
+            
+            .brand-name {
+                font-size: 0.9rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.3rem;
+            }
+            
+            .nav-links a {
+                margin-left: 0;
+                margin-right: 0;
+                font-size: 0.7rem;
+                padding: 2px 4px;
+            }
+            
             .coach-section {
                 flex-direction: column;
                 padding: 2rem;
@@ -394,14 +475,8 @@
                 font-size: 2.5rem;
             }
             
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .nav-links a {
-                margin-left: 0;
-                margin-bottom: 0.5rem;
+            .hero-content p {
+                font-size: 1.2rem;
             }
             
             .map-container {
@@ -411,6 +486,31 @@
             
             .video-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-container::after {
+                content: "☰";
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+            
+            .brand-name {
+                font-size: 0.8rem;
+            }
+            
+            .logo {
+                height: 25px;
             }
         }
     </style>
@@ -487,38 +587,40 @@
         </div>
     </section>
 
-    <section class="container" id="video">
-        <h2 class="section-title">教学视频</h2>
-        <div class="video-container">
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/l1hNFrpUhKg" title="提臀锻炼示范" allowfullscreen></iframe>
-                <p><strong>提臀锻炼示范</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/cWDc24h_5mA" title="卷腹动作示范" allowfullscreen></iframe>
-                <p><strong>卷腹动作示范</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" title="团队上课气氛" allowfullscreen></iframe>
-                <p><strong>团队上课气氛</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" title="团队上课气氛" allowfullscreen></iframe>
-                <p><strong>团队上课气氛</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" title="锻炼马甲线示范" allowfullscreen></iframe>
-                <p><strong>锻炼马甲线示范</strong></p>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="锻炼腰部和手臂与背部" allowfullscreen></iframe>
-                <p><strong>腰部和手臂与背部锻炼</strong></p>
+    <section class="video-section-bg" id="video">
+        <div class="container video-section-content">
+            <h2 class="section-title">教学视频</h2>
+            <div class="video-container">
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/l1hNFrpUhKg" title="提臀锻炼示范" allowfullscreen></iframe>
+                    <p><strong>提臀锻炼示范</strong></p>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/cWDc24h_5mA" title="卷腹动作示范" allowfullscreen></iframe>
+                    <p><strong>卷腹动作示范</strong></p>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/hgK1te0H3kk" title="团队上课气氛" allowfullscreen></iframe>
+                    <p><strong>团队上课气氛</strong></p>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/1F6CFm-1Fdo" title="团队上课气氛" allowfullscreen></iframe>
+                    <p><strong>团队上课气氛</strong></p>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/EHs1Htyh0g4" title="锻炼马甲线示范" allowfullscreen></iframe>
+                    <p><strong>锻炼马甲线示范</strong></p>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="锻炼腰部和手臂与背部" allowfullscreen></iframe>
+                    <p><strong>腰部和手臂与背部锻炼</strong></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="location-container" id="location">
-        <div class="container">
+    <section class="location-section-bg" id="location">
+        <div class="container location-section-content">
             <h2 class="section-title">上课地点</h2>
             <div class="map-container">
                 <div class="map-item">
@@ -539,15 +641,12 @@
         </div>
     </section>
 
-    <section class="container" id="contact">
-        <div class="contact-section">
-            <h2 class="section-title" style="color: white;">联系我们</h2>
-            <p>欢迎随时联系我们，了解更多课程信息</p>
-            <div class="social-links">
-                <a href="#" class="social-link">微信</a>
-                <a href="#" class="social-link">电话</a>
-                <a href="#" class="social-link">WhatsApp</a>
-            </div>
+    <section class="contact-section">
+        <h2 class="section-title" style="color: white;">联系我们</h2>
+        <p>欢迎随时联系我们，了解更多课程信息</p>
+        <div class="social-links">
+            <a href="https://wa.me/601344439133" target="_blank" class="social-link">WhatsApp</a>
+            <a href="mailto:metimefitness2.0@gmail.com" class="social-link">Email</a>
         </div>
     </section>
 
