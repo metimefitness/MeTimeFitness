@@ -339,6 +339,163 @@
             color: #333;
         }
         
+        /* 产品商城样式 */
+        .products-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.25);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #feca57 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .product-info {
+            padding: 2rem;
+        }
+        
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .product-specs {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff6b9d;
+        }
+        
+        .product-specs h4 {
+            color: #ff6b9d;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .product-specs p {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .product-effects {
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-effects h4 {
+            color: #ff6b9d;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .effect-timeline {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .effect-item {
+            background: #fff;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid #ff6b9d;
+            font-size: 0.9rem;
+            color: #666;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .effect-item strong {
+            color: #ff6b9d;
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .buy-button {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b9d 0%, #feca57 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+        
         .location-container {
             background: #f8f9fa;
             padding: 4rem 0;
@@ -425,6 +582,64 @@
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+        }
+        
+        /* 购买模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: #ff6b9d;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .modal-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .confirm-button {
+            background: #25d366;
+            color: white;
+        }
+        
+        .cancel-button {
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .modal-button:hover {
+            transform: translateY(-2px);
         }
         
         @media (max-width: 768px) {
@@ -562,6 +777,7 @@
                 <a href="#coach" onclick="closeMenu()">教练介绍</a>
                 <a href="#schedule" onclick="closeMenu()">课程时间</a>
                 <a href="#video" onclick="closeMenu()">教学视频</a>
+                <a href="#products" onclick="closeMenu()">产品商城</a>
                 <a href="#location" onclick="closeMenu()">上课地点</a>
                 <a href="#contact" onclick="closeMenu()">联系我们</a>
             </div>
@@ -654,6 +870,61 @@
         </div>
     </section>
 
+    <!-- 产品商城 -->
+    <section class="products-section" id="products">
+        <div class="products-container">
+            <h2 class="section-title">产品商城</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">KNK胶原蛋白<br>6500mg</div>
+                    <div class="product-info">
+                        <h3 class="product-name">KNK胶原蛋白 (6500mg)</h3>
+                        
+                        <div class="product-specs">
+                            <h4>产品规格</h4>
+                            <p><strong>品牌：</strong>KNK</p>
+                            <p><strong>含量：</strong>6500mg</p>
+                            <p><strong>包装：</strong>1盒10支装</p>
+                            <p><strong>售价：</strong>RM70</p>
+                        </div>
+
+                        <div class="product-effects">
+                            <h4>产品效果 (具体效果因人而异)</h4>
+                            <div class="effect-timeline">
+                                <div class="effect-item">
+                                    <strong>7天：</strong>睡眠改善，水油平衡，皮肤透亮
+                                </div>
+                                <div class="effect-item">
+                                    <strong>14天：</strong>胶原蛋白开始充盈、肌肤靓白一个度，毛孔开始变小；心情愉悦
+                                </div>
+                                <div class="effect-item">
+                                    <strong>28天：</strong>细纹減淡，斑点变淡，全身体质多维改善，体内胶原蛋白含量提升
+                                </div>
+                                <div class="effect-item">
+                                    <strong>3个月：</strong>痘肌修复，肌肤细腻光滑，肤色变白，深纹淡化，胸部紧实，面若桃花，不焦虑，身体修复逐步完成
+                                </div>
+                                <div class="effect-item">
+                                    <strong>6个月：</strong>达医美效果，肌肤问题全面改善，充盈效果明显，自身胶原蛋白能力复活。精力充沛，娇艳如花
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-specs">
+                            <h4>食用方法</h4>
+                            <p><strong>用量：</strong>每天1-2瓶，开盖即饮</p>
+                            <p><strong>25岁以下：</strong>建议睡前饮用1瓶</p>
+                            <p><strong>25岁以上：</strong>建议睡前饮用2瓶</p>
+                            <p><strong>注意：</strong>如胃部敏感人群可选择晚饭后饮用，3岁以上均可饮用，经期也可饮用</p>
+                        </div>
+
+                        <div class="product-price">RM70</div>
+                        <button class="buy-button" onclick="buyProduct('KNK胶原蛋白(6500mg) 1盒10支装', 70)">立即购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="location-section-bg" id="location">
         <div class="container location-section-content">
             <h2 class="section-title">上课地点</h2>
@@ -688,6 +959,18 @@
     <footer>
         <p>&copy; 2024 Me Time Fitness. All rights reserved.</p>
     </footer>
+
+    <!-- 购买确认模态框 -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <h3>确认购买</h3>
+            <p id="productDetails"></p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm-button" onclick="confirmPurchase()">确认购买</button>
+                <button class="modal-button cancel-button" onclick="closeModal()">取消</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // 手机菜单切换功能
@@ -732,6 +1015,48 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.remove('active');
         });
+
+        // 产品购买功能
+        let currentProduct = null;
+
+        function buyProduct(productName, price) {
+            currentProduct = { name: productName, price: price };
+            document.getElementById('productDetails').innerHTML = `
+                <strong>产品：</strong>${productName}<br>
+                <strong>价格：</strong>RM${price}<br><br>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: left;">
+                    <p style="margin: 0.5rem 0;"><strong>💡 温馨提示：</strong></p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem;">• 确认购买后，我们将通过WhatsApp联系您</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem;">• 请准备好收货地址和联系方式</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem;">• 支持7天无理由退换货</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem;">• 正品保证，附送专利证书</p>
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">点击"确认购买"将通过WhatsApp联系客服完成购买。</p>
+            `;
+            document.getElementById('purchaseModal').style.display = 'flex';
+        }
+
+        function confirmPurchase() {
+            if (currentProduct) {
+                const message = `🌟 我想购买KNK胶原蛋白产品\n\n产品名称：${currentProduct.name}\n价格：RM${currentProduct.price}\n\n请告知我详细的购买流程和付款方式，谢谢！`;
+                const whatsappUrl = `https://wa.me/60134439133?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                closeModal();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+            currentProduct = null;
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html>
