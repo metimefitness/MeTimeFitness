@@ -1368,11 +1368,11 @@
                     </div>
                     
                     <div class="gallery-controls">
-                        <button class="control-btn" ontouchstart="previousImage()" onclick="previousImage()" id="prevBtn">上一张</button>
+                        <button class="control-btn" ontouchstart="previousImage(event)" onclick="previousImage(event)" id="prevBtn">上一张</button>
                         <div class="counter-badge">
                             <span id="currentImageNum">1</span> / <span id="totalImageNum">13</span>
                         </div>
-                        <button class="control-btn" ontouchstart="nextImage()" onclick="nextImage()" id="nextBtn">下一张</button>
+                        <button class="control-btn" ontouchstart="nextImage(event)" onclick="nextImage(event)" id="nextBtn">下一张</button>
                     </div>
                 </div>
             </div>
@@ -1641,21 +1641,29 @@
         }
 
         // 上一张图片（防止页面滚动）
-        function previousImage() {
-            event.preventDefault();
-            event.stopPropagation();
+        function previousImage(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
             let newIndex = currentSlide - 1;
             if (newIndex < 0) newIndex = productImages.length - 1;
             selectImage(newIndex);
+            return false;
         }
 
         // 下一张图片（防止页面滚动）
-        function nextImage() {
-            event.preventDefault();
-            event.stopPropagation();
+        function nextImage(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
             let newIndex = currentSlide + 1;
             if (newIndex >= productImages.length) newIndex = 0;
             selectImage(newIndex);
+            return false;
         }
 
         // 更新按钮状态
@@ -1716,25 +1724,63 @@
             // 添加图片点击放大功能
             document.getElementById('mainDisplayImage').addEventListener('click', toggleZoom);
 
-            // 添加键盘导航支持
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') {
-                    previousImage();
-                } else if (e.key === 'ArrowRight') {
-                    nextImage();
-                } else if (e.key === 'Escape') {
-                    const mainImage = document.getElementById('mainDisplayImage');
-                    if (mainImage.classList.contains('zoomed')) {
-                        mainImage.classList.remove('zoomed');
-                    }
+        // 添加键盘导航支持
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                e.stopPropagation();
+                previousImage();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                e.stopPropagation();
+                nextImage();
+            } else if (e.key === 'Escape') {
+                const mainImage = document.getElementById('mainDisplayImage');
+                if (mainImage.classList.contains('zoomed')) {
+                    mainImage.classList.remove('zoomed');
                 }
-            });
+            }
+        });
         });
         
         // 滚动时自动关闭菜单
         window.addEventListener('scroll', function() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.remove('active');
+        });
+
+        // 阻止画廊控制按钮的默认滚动行为
+        document.addEventListener('DOMContentLoaded', function() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    previousImage(e);
+                }, { passive: false });
+                
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    previousImage(e);
+                }, { passive: false });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    nextImage(e);
+                }, { passive: false });
+                
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    nextImage(e);
+                }, { passive: false });
+            }
         });
 
         // 标签页切换
