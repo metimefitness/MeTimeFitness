@@ -327,17 +327,19 @@
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
         }
 
-        .schedule-header::before {
-            content: '📅';
+        .schedule-emoji {
             font-size: 3rem;
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: none;
-            background: none;
+            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .schedule-grid {
@@ -1348,6 +1350,15 @@
                 padding: 2rem 1.5rem;
             }
 
+            .schedule-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .schedule-emoji {
+                font-size: 2.5rem;
+            }
+
             .schedule-item {
                 padding: 2rem;
             }
@@ -1554,8 +1565,11 @@
         <div class="container">
             <div class="schedule">
                 <div class="schedule-header">
-                    <h2 class="section-title" style="position: relative; z-index: 2;">课程时间表</h2>
-                    <p style="color: #666; font-size: 1.1rem; margin-top: 1rem;">专业健身课程，灵活安排时间</p>
+                    <span class="schedule-emoji">📅</span>
+                    <div>
+                        <h2 class="section-title" style="position: relative; z-index: 2; margin-bottom: 0.5rem;">课程时间表</h2>
+                        <p style="color: #666; font-size: 1.1rem;">专业健身课程，灵活安排时间</p>
+                    </div>
                 </div>
                 
                 <div class="schedule-grid">
