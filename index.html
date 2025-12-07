@@ -528,16 +528,7 @@
             border-left: 4px solid #ff6b6b;
         }
 
-        .image-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #ff6b6b, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+
 
         .image-description {
             color: #666;
@@ -1160,9 +1151,7 @@
                 margin-top: 1rem;
             }
 
-            .image-title {
-                font-size: 1.2rem;
-            }
+
 
             .gallery-controls {
                 flex-direction: column;
@@ -1375,7 +1364,6 @@
                     </div>
                     
                     <div class="image-info-panel">
-                        <div class="image-title" id="imageTitle">选择图片查看详情</div>
                         <div class="image-description" id="imageDescription">请点击左侧的缩略图来查看产品照片的详细信息</div>
                     </div>
                     
@@ -1575,19 +1563,19 @@
     <script>
         // 产品图片数据
         const productImages = [
-            { src: 'IMG_8468.JPEG', title: '产品包装展示', desc: '精美包装设计，彰显品质' },
-            { src: 'IMG_8469.JPEG', title: '产品细节', desc: '高品质产品细节展示' },
-            { src: 'IMG_8470.JPEG', title: '专利证明', desc: '国际专利认证证书' },
-            { src: 'IMG_8471.JPEG', title: '质量认证', desc: '权威质量认证文件' },
-            { src: 'IMG_8472.JPEG', title: '生产许可', desc: '正规生产许可证' },
-            { src: 'IMG_8473.JPEG', title: '成分说明', desc: '产品成分详细说明' },
-            { src: 'IMG_8474.JPEG', title: '使用效果', desc: '真实使用效果对比' },
-            { src: 'IMG_8475.JPEG', title: '用户反馈', desc: '满意用户真实反馈' },
-            { src: 'IMG_8476.JPEG', title: '权威检测', desc: '第三方权威检测报告' },
-            { src: 'IMG_8477.JPEG', title: '国际认证', desc: '多项国际认证证书' },
-            { src: 'IMG_8478.JPEG', title: '专利技术', desc: '核心技术专利证明' },
-            { src: 'IMG_8479.JPEG', title: '品质保证', desc: '品质保证体系认证' },
-            { src: 'IMG_8480.JPEG', title: '安全认证', desc: '安全性相关认证文件' }
+            { src: 'IMG_8468.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8469.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8470.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8471.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8472.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8473.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8474.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8475.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8476.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8477.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8478.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8479.JPEG', title: '', desc: '产品相关证明和资料展示' },
+            { src: 'IMG_8480.JPEG', title: '', desc: '产品相关证明和资料展示' }
         ];
 
         let currentSlide = 0;
@@ -1654,15 +1642,19 @@
             updateButtonStates();
         }
 
-        // 上一张图片
+        // 上一张图片（防止页面滚动）
         function previousImage() {
+            event.preventDefault();
+            event.stopPropagation();
             let newIndex = currentSlide - 1;
             if (newIndex < 0) newIndex = productImages.length - 1;
             selectImage(newIndex);
         }
 
-        // 下一张图片
+        // 下一张图片（防止页面滚动）
         function nextImage() {
+            event.preventDefault();
+            event.stopPropagation();
             let newIndex = currentSlide + 1;
             if (newIndex >= productImages.length) newIndex = 0;
             selectImage(newIndex);
