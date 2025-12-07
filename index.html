@@ -339,7 +339,333 @@
             color: #333;
         }
         
-        /* 产品商城样式 */
+        /* 产品图片画廊样式 */
+        .products-gallery-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 193, 7, 0.05) 50%, rgba(102, 126, 234, 0.05) 100%);
+            padding: 6rem 0;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .products-gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .products-gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-intro h2 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .gallery-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 主轮播容器 */
+        .main-carousel {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .carousel-slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .carousel-slide.next {
+            transform: translateX(100%);
+        }
+
+        .carousel-image {
+            max-width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide:hover .carousel-image {
+            transform: scale(1.05);
+        }
+
+        /* 轮播控制按钮 */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .carousel-nav:hover {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 20px;
+        }
+
+        .carousel-nav.next {
+            right: 20px;
+        }
+
+        /* 缩略图画廊 */
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 0 0 25px 25px;
+        }
+
+        .thumbnail {
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .thumbnail.active {
+            border: 3px solid #ff6b6b;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        /* 图片信息显示 */
+        .image-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-slide:hover .image-info {
+            opacity: 1;
+        }
+
+        /* 进度指示器 */
+        .progress-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: #ff6b6b;
+            transform: scale(1.3);
+        }
+
+        /* 产品详情信息 */
+        .product-details {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .details-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .tab-button.active {
+            color: #ff6b6b;
+            border-bottom-color: #ff6b6b;
+        }
+
+        .tab-button:hover {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .info-card h4 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .certification-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* 产品商城原有样式保持 */
         .products-section {
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
             padding: 4rem 0;
@@ -454,22 +780,6 @@
             50% { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2); }
             75% { box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2); }
             100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2); }
-        }
-        
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         
         .product-info {
@@ -771,6 +1081,42 @@
             .container {
                 padding: 2rem 1rem;
             }
+
+            /* 画廊响应式设计 */
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-nav.prev {
+                left: 10px;
+            }
+
+            .carousel-nav.next {
+                right: 10px;
+            }
+
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+
+            .gallery-intro h2 {
+                font-size: 2rem;
+            }
+
+            .details-tabs {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: left;
+                border-bottom: 1px solid #f0f0f0;
+            }
         }
         
         @media (max-width: 480px) {
@@ -842,6 +1188,7 @@
                 <a href="#coach" onclick="closeMenu()">教练介绍</a>
                 <a href="#schedule" onclick="closeMenu()">课程时间</a>
                 <a href="#video" onclick="closeMenu()">教学视频</a>
+                <a href="#gallery" onclick="closeMenu()">产品图库</a>
                 <a href="#products" onclick="closeMenu()">产品商城</a>
                 <a href="#location" onclick="closeMenu()">上课地点</a>
                 <a href="#contact" onclick="closeMenu()">联系我们</a>
@@ -930,6 +1277,113 @@
                 <div class="video-item">
                     <iframe src="https://www.youtube.com/embed/lMbZe60l6Ss" title="锻炼腰部和手臂与背部" allowfullscreen></iframe>
                     <p><strong>腰部和手臂与背部锻炼</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品图片画廊 -->
+    <section class="products-gallery-section" id="gallery">
+        <div class="products-gallery-container">
+            <div class="gallery-intro">
+                <h2>产品展示画廊</h2>
+                <p>专业认证的高品质产品，专利证明齐全，为您提供最可靠的美容保健解决方案</p>
+            </div>
+
+            <!-- 主轮播 -->
+            <div class="main-carousel">
+                <div class="carousel-container">
+                    <!-- 轮播图片将通过JavaScript动态生成 -->
+                    <div id="carouselSlides"></div>
+                    
+                    <!-- 轮播控制按钮 -->
+                    <button class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-nav next" onclick="changeSlide(1)">›</button>
+                    
+                    <!-- 进度指示器 -->
+                    <div class="progress-indicator" id="progressIndicator"></div>
+                </div>
+                
+                <!-- 缩略图画廊 -->
+                <div class="thumbnail-gallery" id="thumbnailGallery"></div>
+            </div>
+
+            <!-- 产品详情信息 -->
+            <div class="product-details">
+                <div class="details-tabs">
+                    <button class="tab-button active" onclick="switchTab('overview')">产品概述</button>
+                    <button class="tab-button" onclick="switchTab('certification')">专利认证</button>
+                    <button class="tab-button" onclick="switchTab('usage')">使用方法</button>
+                    <button class="tab-button" onclick="switchTab('benefits')">产品功效</button>
+                </div>
+                
+                <div id="overview" class="tab-content active">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>🌟 产品特色</h4>
+                            <p>采用最新生物科技配方，融合天然植物精华，为肌肤提供深层滋养和修复。每批次产品都经过严格质量检测，确保安全性和有效性。</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>🏆 品质保证</h4>
+                            <p>获得国际多项认证，包括GMP良好生产规范、ISO质量管理体系认证等。产品不含添加剂、防腐剂，纯天然配方，适合各种肤质使用。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="certification" class="tab-content">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>📜 专利技术</h4>
+                            <p>拥有独特的分子渗透技术专利，能够将有效成分快速渗透至肌肤底层，显著提升吸收率和效果。该技术已获得多国专利认证。</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>🔬 科学验证</h4>
+                            <p>通过多家权威机构临床测试，安全性和有效性得到充分验证。数千名用户的使用反馈证实了产品的卓越品质和显著效果。</p>
+                        </div>
+                    </div>
+                    <div class="certification-badges">
+                        <span class="badge">🏅 国际专利认证</span>
+                        <span class="badge">🔬 GMP生产认证</span>
+                        <span class="badge">🌱 有机天然认证</span>
+                        <span class="badge">⚕️ 医疗器械备案</span>
+                    </div>
+                </div>
+                
+                <div id="usage" class="tab-content">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>📋 使用说明</h4>
+                            <p><strong>推荐用量：</strong>每日1-2次，根据个人需求调整</p>
+                            <p><strong>最佳时间：</strong>早晚洁面后使用</p>
+                            <p><strong>使用方法：</strong>取适量产品，均匀涂抹于面部或指定部位，轻柔按摩至完全吸收</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>⚠️ 注意事项</h4>
+                            <p>• 使用前请先在耳后进行敏感测试</p>
+                            <p>• 避免接触眼部，如不慎入眼请立即用清水冲洗</p>
+                            <p>• 请置于儿童无法触及处</p>
+                            <p>• 开封后请在规定期限内使用完毕</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="benefits" class="tab-content">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>✨ 主要功效</h4>
+                            <p><strong>深层滋养：</strong>为肌肤提供充足营养，改善干燥粗糙</p>
+                            <p><strong>提亮肤色：</strong>淡化色斑，均匀肤色，恢复肌肤光泽</p>
+                            <p><strong>抗衰老：</strong>促进胶原蛋白生成，减少细纹皱纹</p>
+                            <p><strong>修护屏障：</strong>强化肌肤屏障功能，提升肌肤抵抗力</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>📈 效果时间线</h4>
+                            <p><strong>1周：</strong>肌肤水润度明显提升，触感更加柔软</p>
+                            <p><strong>2周：</strong>肤色开始提亮，暗沉现象得到改善</p>
+                            <p><strong>1个月：</strong>细纹淡化，肌肤更加紧致有弹性</p>
+                            <p><strong>3个月：</strong>整体肤质显著改善，重现年轻光彩</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1038,6 +1492,104 @@
     </div>
 
     <script>
+        // 产品图片数据
+        const productImages = [
+            { src: 'IMG_8468.JPEG', title: '产品包装展示', desc: '精美包装设计，彰显品质' },
+            { src: 'IMG_8469.JPEG', title: '产品细节', desc: '高品质产品细节展示' },
+            { src: 'IMG_8470.JPEG', title: '专利证明', desc: '国际专利认证证书' },
+            { src: 'IMG_8471.JPEG', title: '质量认证', desc: '权威质量认证文件' },
+            { src: 'IMG_8472.JPEG', title: '生产许可', desc: '正规生产许可证' },
+            { src: 'IMG_8473.JPEG', title: '成分说明', desc: '产品成分详细说明' },
+            { src: 'IMG_8474.JPEG', title: '使用效果', desc: '真实使用效果对比' },
+            { src: 'IMG_8475.JPEG', title: '用户反馈', desc: '满意用户真实反馈' },
+            { src: 'IMG_8476.JPEG', title: '权威检测', desc: '第三方权威检测报告' },
+            { src: 'IMG_8477.JPEG', title: '国际认证', desc: '多项国际认证证书' },
+            { src: 'IMG_8478.JPEG', title: '专利技术', desc: '核心技术专利证明' },
+            { src: 'IMG_8479.JPEG', title: '品质保证', desc: '品质保证体系认证' },
+            { src: 'IMG_8480.JPEG', title: '安全认证', desc: '安全性相关认证文件' }
+        ];
+
+        let currentSlide = 0;
+        let slideInterval;
+
+        // 初始化轮播
+        function initCarousel() {
+            const slidesContainer = document.getElementById('carouselSlides');
+            const thumbnailContainer = document.getElementById('thumbnailGallery');
+            const progressContainer = document.getElementById('progressIndicator');
+
+            // 创建轮播图片
+            productImages.forEach((image, index) => {
+                // 创建轮播项
+                const slide = document.createElement('div');
+                slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+                slide.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}" class="carousel-image">
+                    <div class="image-info">${image.title} - ${image.desc}</div>
+                `;
+                slidesContainer.appendChild(slide);
+
+                // 创建缩略图
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => goToSlide(index);
+                thumbnail.innerHTML = `<img src="${image.src}" alt="${image.title}">`;
+                thumbnailContainer.appendChild(thumbnail);
+
+                // 创建进度指示器
+                const dot = document.createElement('div');
+                dot.className = `progress-dot ${index === 0 ? 'active' : ''}`;
+                dot.onclick = () => goToSlide(index);
+                progressContainer.appendChild(dot);
+            });
+
+            // 开始自动播放
+            startAutoSlide();
+        }
+
+        // 切换到指定幻灯片
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const dots = document.querySelectorAll('.progress-dot');
+
+            // 移除所有active类
+            slides.forEach(slide => slide.classList.remove('active'));
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // 添加active类到当前项
+            slides[index].classList.add('active');
+            thumbnails[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            currentSlide = index;
+            
+            // 重置自动播放
+            resetAutoSlide();
+        }
+
+        // 下一张/上一张
+        function changeSlide(direction) {
+            let newIndex = currentSlide + direction;
+            if (newIndex >= productImages.length) newIndex = 0;
+            if (newIndex < 0) newIndex = productImages.length - 1;
+            goToSlide(newIndex);
+        }
+
+        // 自动播放
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 4000); // 4秒切换一次
+        }
+
+        // 重置自动播放
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
         // 手机菜单切换功能
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
@@ -1073,6 +1625,9 @@
                     }
                 });
             });
+
+            // 初始化轮播
+            initCarousel();
         });
         
         // 滚动时自动关闭菜单
@@ -1080,6 +1635,17 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.remove('active');
         });
+
+        // 标签页切换
+        function switchTab(tabName) {
+            // 移除所有active类
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // 添加active类到当前标签
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
 
         // 产品购买功能
         let currentProduct = null;
