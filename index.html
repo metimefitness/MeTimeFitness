@@ -1368,11 +1368,11 @@
                     </div>
                     
                     <div class="gallery-controls">
-                        <button class="control-btn" onclick="previousImage()" id="prevBtn">上一张</button>
+                        <button class="control-btn" ontouchstart="previousImage()" onclick="previousImage()" id="prevBtn">上一张</button>
                         <div class="counter-badge">
-                            <span id="currentImageNum">0</span> / <span id="totalImageNum">0</span>
+                            <span id="currentImageNum">1</span> / <span id="totalImageNum">13</span>
                         </div>
-                        <button class="control-btn" onclick="nextImage()" id="nextBtn">下一张</button>
+                        <button class="control-btn" ontouchstart="nextImage()" onclick="nextImage()" id="nextBtn">下一张</button>
                     </div>
                 </div>
             </div>
@@ -1614,7 +1614,6 @@
         function selectImage(index) {
             const thumbnails = document.querySelectorAll('.sidebar-thumbnail');
             const mainImage = document.getElementById('mainDisplayImage');
-            const imageTitle = document.getElementById('imageTitle');
             const imageDescription = document.getElementById('imageDescription');
             const currentImageNum = document.getElementById('currentImageNum');
 
@@ -1627,8 +1626,7 @@
             // 更新主图
             const image = productImages[index];
             mainImage.src = image.src;
-            mainImage.alt = image.title;
-            imageTitle.textContent = image.title;
+            mainImage.alt = image.title || '产品图片';
             imageDescription.textContent = image.desc;
             currentImageNum.textContent = index + 1;
 
