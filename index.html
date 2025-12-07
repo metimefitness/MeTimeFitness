@@ -286,29 +286,246 @@
             font-weight: bold;
         }
         
-        .schedule {
-            background: #f1f3f4;
-            padding: 3rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
+        /* 课程时间表美化样式 */
+        .schedule-section {
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.08) 0%, 
+                rgba(118, 75, 162, 0.08) 50%, 
+                rgba(255, 107, 107, 0.08) 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .schedule-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="clocks" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="1"/><circle cx="25" cy="25" r="2" fill="rgba(102,126,234,0.2)"/><line x1="25" y1="25" x2="25" y2="15" stroke="rgba(102,126,234,0.2)" stroke-width="1"/><line x1="25" y1="25" x2="32" y2="25" stroke="rgba(102,126,234,0.2)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23clocks)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .schedule {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 249, 250, 0.9) 100%);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .schedule-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .schedule-header::before {
+            content: '📅';
+            font-size: 3rem;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            position: relative;
         }
-        
+
         .schedule-item {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
         }
-        
+
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .schedule-item.morning {
+            background: linear-gradient(135deg, 
+                rgba(255, 193, 7, 0.05) 0%, 
+                rgba(255, 255, 255, 1) 100%);
+        }
+
+        .schedule-item.morning::before {
+            background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722);
+        }
+
+        .schedule-item.evening {
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.05) 0%, 
+                rgba(255, 255, 255, 1) 100%);
+        }
+
+        .schedule-item.evening::before {
+            background: linear-gradient(90deg, #667eea, #764ba2, #9c27b0);
+        }
+
+        .schedule-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         .schedule-item h3 {
-            color: #667eea;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .schedule-details {
+            margin-top: 1rem;
+        }
+
+        .time-block {
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .time-block:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
+        .time-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .time-text {
+            color: #555;
+            font-weight: 600;
+        }
+
+        .location-block {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(118, 75, 162, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #764ba2;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .location-block:hover {
+            background: rgba(118, 75, 162, 0.1);
+            transform: translateX(5px);
+        }
+
+        .location-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .location-text {
+            color: #555;
+            font-weight: 600;
+        }
+
+        .days-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .schedule-features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-item {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
         }
         
         .video-container {
@@ -1116,6 +1333,32 @@
                 padding: 2rem 1rem;
             }
 
+            /* 时间表响应式设计 */
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .schedule {
+                padding: 2rem 1.5rem;
+            }
+
+            .schedule-item {
+                padding: 2rem;
+            }
+
+            .schedule-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
             /* 画廊响应式设计 */
             .gallery-layout {
                 grid-template-columns: 1fr;
@@ -1302,21 +1545,82 @@
         </div>
     </section>
 
-    <section class="container" id="schedule">
-        <h2 class="section-title">课程时间表</h2>
-        <div class="schedule">
-            <div class="schedule-grid">
-                <div class="schedule-item">
-                    <h3>早班课程</h3>
-                    <p><strong>时间：</strong>每天早上 7:00 AM - 8:00 AM</p>
-                    <p><strong>天数：</strong>星期一至星期日</p>
-                    <p><strong>地点：</strong>Taman Sri Sinar (KFC对面)</p>
+    <section class="schedule-section" id="schedule">
+        <div class="container">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h2 class="section-title" style="position: relative; z-index: 2;">课程时间表</h2>
+                    <p style="color: #666; font-size: 1.1rem; margin-top: 1rem;">专业健身课程，灵活安排时间</p>
                 </div>
-                <div class="schedule-item">
-                    <h3>晚班课程</h3>
-                    <p><strong>时间：</strong>晚上 7:00 PM - 8:00 PM</p>
-                    <p><strong>天数：</strong>星期一至星期五</p>
-                    <p><strong>地点：</strong>Taman Metropolitan Kepong 公园</p>
+                
+                <div class="schedule-grid">
+                    <div class="schedule-item morning">
+                        <div class="schedule-icon">🌅</div>
+                        <h3>晨间唤醒课程</h3>
+                        
+                        <div class="schedule-details">
+                            <div class="time-block">
+                                <span class="time-icon">⏰</span>
+                                <span class="time-text">早上 7:00 AM - 8:00 AM</span>
+                            </div>
+                            
+                            <div class="days-badge">星期一至星期日</div>
+                            
+                            <div class="location-block">
+                                <span class="location-icon">📍</span>
+                                <span class="location-text">Taman Sri Sinar (KFC对面)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌿</span>
+                                <span>清新空气</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💪</span>
+                                <span>活力满满</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎵</span>
+                                <span>音乐节拍</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item evening">
+                        <div class="schedule-icon">🌙</div>
+                        <h3>晚间放松课程</h3>
+                        
+                        <div class="schedule-details">
+                            <div class="time-block">
+                                <span class="time-icon">⏰</span>
+                                <span class="time-text">晚上 7:00 PM - 8:00 PM</span>
+                            </div>
+                            
+                            <div class="days-badge">星期一至星期五</div>
+                            
+                            <div class="location-block">
+                                <span class="location-icon">📍</span>
+                                <span class="location-text">Taman Metropolitan Kepong 公园</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌃</span>
+                                <span>夜景优美</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">😌</span>
+                                <span>舒缓压力</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔥</span>
+                                <span>燃烧脂肪</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
